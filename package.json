@@ -1,0 +1,24 @@
+{
+  "name": "carbanaro-selfbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "babelrc": "0.0.7",
+    "colors": "^1.4.0",
+    "discord.js": "^11.6.4",
+    "figlet": "^1.5.0",
+    "fs": "0.0.1-security",
+    "hypesquad-changer": "^1.0.7",
+    "nano": "^9.0.3",
+    "phin": "^3.5.1",
+    "regex": "^0.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "@Dessa",
+  "license": "ISC"
+}
