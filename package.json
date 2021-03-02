@@ -12,6 +12,7 @@
     "fs": "0.0.1-security",
     "hypesquad-changer": "^1.0.7",
     "nano": "^9.0.3",
+    "pastebin-ts": "^1.2.0",
     "phin": "^3.5.1",
     "regex": "^0.1.1"
   },

@@ -1,0 +1,27 @@
+const Discord = require("discord.js");
+
+module.exports = {
+    name: 'cst',
+    description: "sends time in cst",
+    execute(message, args, client){
+        
+        var date = new Date();
+var utcDate = new Date(date.toUTCString());
+utcDate.setHours(utcDate.getHours()-13);
+var usDate = new Date(utcDate);
+
+        var embed = new Discord.RichEmbed()
+        .setDescription('**' +  usDate.toString().replace("(Eastern Standard Time)","(Central Standard Time)") + '**')
+            
+            
+            
+            .setFooter("Carbanaro", "https://i.imgur.com/nmTgYYp.png")
+            .setColor('#e00961')
+                 message.edit(embed);
+                 return;
+        
+  
+  
+        
+    }
+}

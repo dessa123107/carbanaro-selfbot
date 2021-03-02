@@ -22,8 +22,9 @@ module.exports = {
                 message.channel.fetchMessages().then(async messages => {
                     let msg_array = messages.array();
                     msg_array = msg_array.filter(m => m.author.id === client.user.id);
-                    msg_array.length = count + 1;
+                    msg_array.length = count + 1
                     msg_array.map(m => m.delete());
+                    
                 })
   
   

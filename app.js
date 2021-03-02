@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const prefix = '?';
+
 const {Collection, Client} = require('discord.js');
 client.snipes = new Map()
 const fs = require('fs');
@@ -31,8 +31,8 @@ const test = require('./commands/text_alters/embed');
 ['command'].forEach(handler => {
     require(`./handlers/${handler}`)(client);
 });
-
 client.on('message', async message => {
+    prefix = fs.readFileSync("./prefix.txt", "utf-8").toString().split("\n")[0]
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const cmd = args.shift().toLowerCase();
     if (cmd.length === 0) return;
@@ -520,6 +520,547 @@ function getPrices() {
     
     }
     })
+
+
+    client.on('message', async m => {
+        
+        
+        let args = m.content.substring(prefix.length).split(" ");
+    
+    
+        if (m.content === prefix + 'help avatar'){
+            const avatarmsg = 
+            `**__AVATAR__**
+
+
+
+**${prefix}av <user> <no user = self>** = sends avatar of specified user
+            
+            
+                                
+**${prefix}stealav <user>** = sets the avatar of the mentioned user as yours(CANNOT BYPASS NITRO)`
+            
+                        var avembed = new Discord.RichEmbed()
+                        .setDescription(avatarmsg)
+                        
+                        .setColor('#e00961')
+                        .setImage('https://i.gyazo.com/7f8831c6570199c30c8efad6ba65d918.png')
+                        .setFooter("Carbanaro", "https://i.imgur.com/nmTgYYp.png")
+                
+                             m.edit(avembed);
+                             return;
+                    }
+                
+                    if (m.content === prefix + 'help food'){
+                       const foodmsg = 
+            `
+            **__FOOD__**
+
+
+            
+**${prefix}mc** = sends the mcdonalds menu`
+            
+            
+                        var foodembed = new Discord.RichEmbed()
+                        .setDescription(foodmsg)
+                        .setColor('#e00961')
+                        .setImage('https://i.gyazo.com/7f8831c6570199c30c8efad6ba65d918.png')
+                        .setFooter("Carbanaro", "https://i.imgur.com/nmTgYYp.png")
+                        m.edit(foodembed);
+                        return;
+                    }
+                
+                    if (m.content === prefix + 'help fun'){
+                        const funmsg = 
+            `
+            **__FUN__**
+
+        
+            
+**${prefix}coinflip** = sends a heads or tails answer
+
+            
+                    
+**${prefix}gay <user>** = sends the gay percentage of the mentioned user
+
+            
+                    
+**${prefix}pp <user> <no user = self>** = sends the pp size of the specified user
+
+            
+                    
+**${prefix}quickmsg <msg>** = sends the message then quickly deletes it
+
+
+            
+**${prefix}roast** = sends random roast message
+
+
+            
+**${prefix}yomama <user>** = sends a yo mama joke about the user's mama`
+                        
+            
+                        var funembed = new Discord.RichEmbed()
+                        .setDescription(funmsg)
+                        .setColor('#e00961')
+                        .setImage('https://i.gyazo.com/7f8831c6570199c30c8efad6ba65d918.png')
+                        .setFooter("Carbanaro", "https://i.imgur.com/nmTgYYp.png")
+                        m.edit(funembed);
+                        return;
+                    
+                    }
+                
+                    if (m.content === prefix + 'help text-alters'){
+                        const textmsg = 
+            `
+            **__TEXT ALTERS__**
+
+
+                    
+**${prefix}announce <message>** = sends message with ping
+
+            
+            
+**${prefix}ascii <text>** = sends the text in ascii
+
+            
+                    
+**${prefix}bold <text>** = sends the text bolded
+
+            
+                    
+**${prefix}code <text>** = sends the text in coding format
+
+                    
+            
+**${prefix}embed <text>** = sends the text in an embed
+
+            
+            
+**${prefix}italics <text>** = sends the text in italics
+
+            
+                    
+**${prefix}sarcastic <text>** = sEnDs ThE tExT lIkE tHiS
+
+
+
+**${prefix}uwu <text>** = sends messages wike this
+
+
+
+**${prefix}glitch <text>** = sends and deletes the message multiple times to form a glitch effect
+
+
+
+**${prefix}crossout <text>** = sends text crossed out
+
+
+
+**${prefix}underline <text>** = sends message underlined`
+            
+            var textembed = new Discord.RichEmbed()
+            .setDescription(textmsg)
+            .setColor('#e00961')
+            .setImage('https://i.gyazo.com/7f8831c6570199c30c8efad6ba65d918.png')
+            .setFooter("Carbanaro", "https://i.imgur.com/nmTgYYp.png")
+            m.edit(textembed);
+            return;
+            
+            
+                       
+                    } 
+                    if(m.content === prefix + 'help bitcoin'){
+                        const btcmsg = 
+            `
+            **__BITCOIN__**
+
+            
+            
+**${prefix}btc** = sends the current bitcoin price (USD)`
+                        
+                        
+            var btcembed = new Discord.RichEmbed()
+            .setDescription(btcmsg)
+            .setColor('#e00961')
+            .setImage('https://i.gyazo.com/7f8831c6570199c30c8efad6ba65d918.png')
+            .setFooter("Carbanaro", "https://i.imgur.com/nmTgYYp.png")
+            m.edit(btcembed);
+            return;
+                    
+                    
+                    
+                    } if(m.content === prefix + 'help status'){
+            
+                        const statusmsg = 
+            `
+            **__STATUS__**
+            
+                    
+**${prefix}stream <status>** = sets status as message but it appears as a stream
+
+            
+                    
+**${prefix}watch <status>** = sets status as message but it appears as watching
+
+            
+                    
+**${prefix}listen <status>** = sets status as message but it appears as listening
+
+            
+                    
+**${prefix}play <status>** = sets status as message but it appears as playing
+
+            
+                    
+**${prefix}status off** = turns all status's off`
+            
+            
+            var statusembed = new Discord.RichEmbed()
+            .setDescription(statusmsg)
+            .setColor('#e00961')
+            .setImage('https://i.gyazo.com/7f8831c6570199c30c8efad6ba65d918.png')
+            .setFooter("Carbanaro", "https://i.imgur.com/nmTgYYp.png")
+            m.edit(statusembed);
+            return;
+            
+            
+            
+                    } if(m.content === prefix + 'help math'){
+                        const mathmsg = 
+                        `
+                        **__MATH__**
+
+            
+                        
+**${prefix}multiply <number> <number>** = multiples the two numbers
+
+                        
+                        
+**${prefix}add <number> <number>** = adds the two numbers
+
+            
+            
+**${prefix}subtract <number> <number> = subtracts number 2 from number 1
+
+            
+            
+**${prefix}divide <number> <number> = divides number 2 from number 1`
+            
+            
+                        var mathembed = new Discord.RichEmbed()
+            .setDescription(mathmsg)
+            .setColor('#e00961')
+            
+            .setImage('https://i.gyazo.com/7f8831c6570199c30c8efad6ba65d918.png')
+            .setFooter("Carbanaro", "https://i.imgur.com/nmTgYYp.png")
+            m.edit(mathembed);
+            return;
+            
+                    } if(m.content === prefix + 'help time'){
+                        const timemsg = 
+                        `**__TIME__**
+
+                        
+**${prefix}est** = sends time in est
+
+            
+            
+**${prefix}pst** = sends time in pst
+
+            
+            
+**${prefix}cst** = sends time in cst
+
+            
+            
+**${prefix}mst** = sends the time in mst
+
+            
+            
+**${prefix}hast** = sends time in hast
+
+            
+            
+**${prefix}akst** = sends time in akst`
+                        var timeembed = new Discord.RichEmbed()
+                        .setDescription(timemsg)
+                        .setColor('#e00961')
+                        .setImage('https://i.gyazo.com/7f8831c6570199c30c8efad6ba65d918.png')
+                        .setFooter("Carbanaro", "https://i.imgur.com/nmTgYYp.png")
+                        m.edit(timeembed);
+                        return;
+            
+            
+                    }
+                    
+                    
+                    if(m.content === prefix + 'help hypesquad'){
+                        const hypemsg = 
+            `
+            **__HYPESQUAD__**
+            
+                    
+**${prefix}hypesquad** = shows the options for changing hypesquad house
+
+            
+                    
+**${prefix}brilliance** = sets hypesquad as brilliance house
+
+            
+                    
+**${prefix}balance** = sets hypesqaud as balance house
+
+            
+                    
+**${prefix}bravery** = sets hypesquad as bravery house
+            
+
+            
+**${prefix}random** = randomizes hypesquad house`
+            
+            
+            var hypeembed = new Discord.RichEmbed()
+            .setDescription(hypemsg)
+            .setColor('#e00961')
+            .setImage('https://i.gyazo.com/7f8831c6570199c30c8efad6ba65d918.png')
+            .setFooter("Carbanaro", "https://i.imgur.com/nmTgYYp.png")
+            m.edit(hypeembed);
+            return;
+                    } if(m.conetent === prefix + 'help moderation'){
+                        const modmsg = 
+            `
+            **__MODERATION__**
+
+            
+                    
+**${prefix}purge <amount>** = purges YOUR messages (can be used in dms or servers)`
+            
+            var modembed = new Discord.RichEmbed()
+            .setDescription(modmsg)
+            .setColor('#e00961')
+            .setImage('https://i.gyazo.com/7f8831c6570199c30c8efad6ba65d918.png')
+            .setFooter("Carbanaro", "https://i.imgur.com/nmTgYYp.png")
+            m.edit(modembed);
+            
+                    } if(m.content === prefix + 'help snipers') {
+            
+                    const snimsg = 
+            `
+            **__SNIPERS(ALWAYS ON EXCEPT MESSAGE SNIPE)__**
+
+            
+                    
+**Giveaway sniper** = auto joins giveaways with the 🎉 reaction
+
+            
+                    
+**Nitro sniper** = auto claims any nitro codes sent into any channels/dms
+
+            
+                    
+**${prefix}snipe** = sends the most recent deleted message`
+            
+            var sniembed = new Discord.RichEmbed()
+            .setDescription(snimsg)
+            .setColor('#e00961')
+            .setImage('https://i.gyazo.com/7f8831c6570199c30c8efad6ba65d918.png')
+            .setFooter("Carbanaro", "https://i.imgur.com/nmTgYYp.png")
+            m.edit(sniembed);
+                    } if(m.content === prefix + 'help emojis'){
+                        const emojimsg = 
+                        `
+                        **__EMOJIS__**
+
+            
+                        
+**${prefix}5head** = sends bahroo 5head emoji
+
+            
+            
+**${prefix}aww** = sends aww bahroo emoji
+
+            
+            
+**${prefix}blankmind** = sends bahroo aww emoji
+
+            
+            
+**${prefix}blind** = sends bahroo blindfold emoji
+
+            
+            
+**${prefix}bonk** = sends bahroo bonk emoji
+
+            
+            
+**${prefix}coffee** = sends bahroo coffee drink emoji
+
+            
+            
+**${prefix}comfy** = sends bahroo comfy emoji
+
+            
+            
+**${prefix}cookie** = sends bahroo cookie emoji
+
+            
+            
+**${prefix}cry** = sends bahroo cry emoji
+
+            
+            
+**${prefix}eyeroll** = sends pepe eyeroll emoji
+
+            
+            
+**${prefix}french** = sends pepe french emoji
+
+            
+            
+**${prefix}hi** = sends bahroo hi emoji
+
+            
+            
+**${prefix}kek** = sends kek laugh emoji
+
+            
+            
+**${prefix}lick** = sends bahroo lick emoji
+
+            
+            
+**${prefix}peek** = sends bahroo peek emoji
+
+            
+            
+**${prefix}pog** = sends bahroo pog emoji
+
+            
+            
+**${prefix}ponder** = sends bahroo pog emoji
+
+            
+            
+**${prefix}pray** = sends bahroo pray emoji
+
+            
+            
+**${prefix}sad** = sends bahroo sad emoji
+
+            
+            
+**${prefix}sip** = sends bahroo sip emoji
+
+            
+            
+**${prefix}sleepy** = sends bahroo sleepy emoji
+
+            
+            
+**${prefix}smoosh** = sends bahroo glass smoosh emoji`
+            
+            
+                        var emojiembed = new Discord.RichEmbed()
+            .setDescription(emojimsg)
+            .setColor('#e00961')
+            
+            .setImage('https://i.gyazo.com/7f8831c6570199c30c8efad6ba65d918.png')
+            .setFooter("Carbanaro", "https://i.imgur.com/nmTgYYp.png")
+            m.edit(emojiembed);
+            return;
+                    }if(m.content === prefix + 'help utility'){
+                        const utimsg =
+            `
+            **__UTILITY__**
+
+            
+                    
+**${prefix}help** = shows this message
+
+            
+                    
+**${prefix}price** = shows the price of the selfbot
+
+            
+                    
+**${prefix}tos** = shows Carbanaro's TOS
+
+            
+            
+**${prefix}inv** = sends Perm discord invitation
+
+            
+                    
+**${prefix}install** = shows the instructions for installation
+
+            
+            
+**${prefix}prefix <new prefix>** = changes prefix for selfbot`
+            
+            var utiembed = new Discord.RichEmbed()
+            .setDescription(utimsg)
+            .setColor('#e00961')
+            .setImage('https://i.gyazo.com/7f8831c6570199c30c8efad6ba65d918.png')
+            .setFooter("Carbanaro", "https://i.imgur.com/nmTgYYp.png")
+            m.edit(utiembed);
+                    } else if(m.content === prefix + 'help'){
+                        const helpmsg = 
+             ` 
+             **__AVATAR__**
+            
+
+**__FOOD MENUS__**
+
+            
+**__FUN__**
+
+            
+**__TEXT ALTERS__**
+
+            
+**__BITCOIN__**
+
+            
+**__STATUS__**
+
+             
+**__HYPESQUAD__**
+
+            
+**__MODERATION__**
+
+            
+**__UTILITY__**
+
+            
+**__MATH__**
+
+            
+**__TIME__**
+
+            
+**__EMOJIS__**`
+
+             
+             
+             
+             
+             
+            
+            
+            
+             var embed = new Discord.RichEmbed()
+             .setDescription(helpmsg)
+             .setTitle('HELP CATEGORIES')
+             .setColor('#e00961')
+             .setImage('https://i.gyazo.com/7f8831c6570199c30c8efad6ba65d918.png')
+             .setFooter("Carbanaro", "https://i.imgur.com/nmTgYYp.png")
+             m.edit(embed);
+            
+            
+                    }
+                    });
     
           
           
@@ -527,5 +1068,9 @@ function getPrices() {
 let tokenFile = fs.readFileSync("token.txt", "utf-8")
 
 let token = fs.readFileSync("token.txt", "utf-8").toString().split("\n")[0]
- 
+
+const prefixfile = fs.readFileSync("prefix.txt", "utf-8")
+
+let prefix = fs.readFileSync("./prefix.txt", "utf-8").toString().split("\n")[0]
+console.log(fs.readFileSync("./prefix.txt", "utf8").toString())
 client.login(token)
