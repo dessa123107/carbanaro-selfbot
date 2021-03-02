@@ -690,6 +690,30 @@ function getPrices() {
                     
                     
                     
+                    }if(m.content === prefix + 'help alphabet'){
+                        const alphamsg = 
+            `
+            **__ALPHABET__**
+
+            
+            
+**${prefix}alpha** = sends the english alphabet
+
+
+
+**${prefix}alphareverse** = sends the english alphabet backwards`
+                        
+                        
+            var alphaembed = new Discord.RichEmbed()
+            .setDescription(alphamsg)
+            .setColor('#e00961')
+            .setImage('https://i.gyazo.com/7f8831c6570199c30c8efad6ba65d918.png')
+            .setFooter("Carbanaro", "https://i.imgur.com/nmTgYYp.png")
+            m.edit(alphaembed);
+            return;
+                    
+                    
+                    
                     } if(m.content === prefix + 'help status'){
             
                         const statusmsg = 
