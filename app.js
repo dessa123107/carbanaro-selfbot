@@ -33,6 +33,7 @@ const test = require('./commands/text_alters/embed');
 });
 client.on('message', async message => {
     prefix = fs.readFileSync("./prefix.txt", "utf-8").toString().split("\n")[0]
+    if (message.author.id !== client.user.id) return;
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const cmd = args.shift().toLowerCase();
     if (cmd.length === 0) return;
